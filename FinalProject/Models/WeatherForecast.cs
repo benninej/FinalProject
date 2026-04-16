@@ -1,4 +1,4 @@
-namespace FinalProject
+namespace FinalProject.Models
 {
     public class WeatherForecast
     {
