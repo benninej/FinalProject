@@ -10,6 +10,7 @@ namespace FinalProject.Data
         }
 
         public DbSet<TeamMember> TeamMembers { get; set; }
+        public DbSet<Sports> Sports { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -40,6 +41,33 @@ namespace FinalProject.Data
                     YearInProgram = "Sophmore"
                 }
             );
+
+            modelBuilder.Entity<Sports>().HasData(
+               new Sports
+               {
+                   Id = 1,
+                   Name = "Noah Honsaker",
+                   Sport = "Football",
+                   Team = "Bengals",
+                   Wins = "6"
+               },
+               new Sports
+               {
+                   Id = 2,
+                   Name = "Ellie Bennings",
+                   Sport = "Volleyball",
+                   Team = "Japan Mens National",
+                   Wins = "9"
+               },
+               new Sports
+               {
+                   Id = 3,
+                   Name = "Micheal Jones",
+                   Sport = "Swimming",
+                   Team = "US National Team",
+                   Wins = "9"
+               }
+           );
         }
     }
 }
