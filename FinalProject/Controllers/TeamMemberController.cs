@@ -1,7 +1,7 @@
-﻿namespace FinalProject.Controllers
+﻿using FinalProject.Data;
+using Microsoft.AspNetCore.Mvc;
+
+namespace FinalProject.Controllers
 {
-    
-    public class TeamMemberController
-    {
-    }
+   
 }
