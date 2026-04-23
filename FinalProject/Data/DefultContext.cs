@@ -11,6 +11,8 @@ namespace FinalProject.Data
 
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<Sports> Sports { get; set; }
+        public DbSet<Favorites> Favorites { get; set; }
+        public DbSet<Menu> MenuItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -42,6 +44,41 @@ namespace FinalProject.Data
                 }
             );
 
+            modelBuilder.Entity<Menu>().HasData(
+            new Menu
+            {
+            FoodId = 1,
+            Name = "Margherita Pizza",
+            Price = 12.99m,
+            Category = "Main Course",
+            IsVegetarian = true
+            },
+             new Menu
+             {
+                FoodId = 2,
+                Name = "Caesar Salad",
+                Price = 8.50m,
+                Category = "Starters",
+                IsVegetarian = true
+             },
+             new Menu
+             {
+             FoodId = 3,
+             Name = "Beef Burger",
+             Price = 10.00m,
+             Category = "Main Course",
+             IsVegetarian = false
+             },
+             new Menu
+            {
+             FoodId = 4,
+             Name = "Chocolate Lava Cake",
+             Price = 6.00m,
+             Category = "Desserts",
+             IsVegetarian = true
+             }
+);
+
             modelBuilder.Entity<Sports>().HasData(
                new Sports
                {
@@ -67,6 +104,36 @@ namespace FinalProject.Data
                    Team = "US National Team",
                    Wins = "9"
                }
+           );
+
+            modelBuilder.Entity<Favorites>().HasData(
+                new Favorites
+                {
+                    Id = 1,
+                    Name = "Noah Honsaker",
+                    Food = "Hamburger",
+                    Music = "Indie",
+                    Hobby = "Hiking",
+                    Animal = "Cat"
+                },
+                new Favorites
+                {
+                    Id = 2,
+                    Name = "Ellie Bennings",
+                    Food = "Pasta",
+                    Music = "Kpop",
+                    Hobby = "Drawing",
+                    Animal = "Bunny"
+                },
+                new Favorites
+                {
+                    Id = 3,
+                    Name = "Michael Jones",
+                    Food = "General Tso's Chicken",
+                    Music = "Techno",
+                    Hobby = "Video Games",
+                    Animal = "Snake"
+                }
            );
         }
     }
