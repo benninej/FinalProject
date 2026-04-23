@@ -5,6 +5,8 @@ namespace FinalProject.Models
     public class Sports
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public int Id { get; set; }
 
         [Required]
