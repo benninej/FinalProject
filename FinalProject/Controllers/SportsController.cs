@@ -18,7 +18,7 @@ namespace FinalProject.Controllers
             
         }
         // READ
-        [HttpGet("{id?}")]
+        [HttpGet("{id}")]
         public IActionResult Get(int? id)
         {
            if (id == null || id == 0)
