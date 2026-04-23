@@ -10,18 +10,20 @@ namespace FinalProject.Controllers
     [Route("api/[controller]")]
     public class SportsController : ControllerBase
     {
+       
         private readonly DefultContext _context;
         public SportsController(DefultContext context)
         {
             _context = context;
+            
         }
         // READ
         [HttpGet("{id?}")]
-        public async Task<IActionResult> Get(int? id)
+        public IActionResult Get(int? id)
         {
-            if (id == null || id == 0)
-                return Ok(await _context.Sports.Take(5).ToListAsync());
-            var sport = await _context.Sports.FindAsync(id);
+           if (id == null || id == 0)
+                return Ok(_context.Sports.ToList());
+            var sport = _context.Sports.FindAsync(id);
             if (sport == null)
                 return NotFound();
             return Ok(sport);
